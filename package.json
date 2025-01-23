@@ -1,0 +1,31 @@
+{
+  "name": "namastereact",
+  "version": "1.0.0",
+  "description": "\"front-end using react\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shreyanshraj12/Namaste-React.git"
+  },
+  "author": "Shreyansh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shreyanshraj12/Namaste-React/issues"
+  },
+  "homepage": "https://github.com/Shreyanshraj12/Namaste-React#readme",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
