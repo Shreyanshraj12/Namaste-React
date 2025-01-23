@@ -1,29 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-// const heading = React.createElement("h1",{id: "heading"},"Hello World in React 🚀")
-const Title = ()=>(
-    <a href="/">
-    <img className="logo" alt="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS51Fg8ECaMCb6T2yAd4CgUjy_hu7Zk1OKEZw&s"/>
-    </a>
-)
-const HeaderComponent = ()=>{
-    return(
-        <div className="header">
-            <Title/>
-            <div className="nav-items">
-                <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
-                <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    );
-}
-
-const  ResturantList =  [
+ export const IMG_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+ export const  ResturantList =  [
     {
       "info": {
         "id": "171574",
@@ -1471,67 +1447,3 @@ const  ResturantList =  [
       }
     }
 ]
-const ResturantCard = ({cloudinaryImageId,name,cuisines,sla})=>{
-    return(
-        <div className="card">
-            <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId}/>
-             <h2>{name}</h2>
-             <h3>{cuisines.join(" , ")}</h3> 
-              <h4>{sla.lastMileTravel} minutes</h4>
-            
-        </div>
-    )
-}
-
-
-
-
-const Body = ()=>{
-    return(
-        <div className="resturant-list">
-           {ResturantList.map((p)=>{
-           return  <ResturantCard {...p.info} key={p.info.id}/>
-           })}
-            
-             
-
-
-              
-
-        </div>
-      
-    )
-}
-
-
-const Footer = ()=>{
-    return(
-        <h4>Footer</h4>
-    )
-}
-
-
-const Applayout = ()=>{
-    return(
-        <>
- 
-        <HeaderComponent/>
-        <Body/>
-        <Footer/>
-        
-        </>
-    )
-}
-
-
-
-
-
-
-
-
-
-
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Applayout/>);
