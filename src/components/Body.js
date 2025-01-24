@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { ResturantList } from "../constants";
 import  ResturantCard  from "./ResturantCard";
 
@@ -14,6 +14,21 @@ const filterData = (searchText, resturants) => {
 const Body = ()=>{
     const[resturants, setResturants] = useState(ResturantList);
     const [searchText, setSearchText] = useState("");
+   
+
+    useEffect(()=>{
+      //Api Call
+      getResturants();
+     
+
+    },[]);
+
+    async function  getResturants(){
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.2585371&lng=82.06598579999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    const json = await data.json();
+    setResturants(json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
+    }
     return(
         <>
         <div className="search-container">
