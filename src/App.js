@@ -4,6 +4,10 @@ import HeaderComponent from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
 import { IMG_CDN_URL } from "./constants";
+import { createBrowserRouter,Outlet,RouterProvider } from "react-router-dom";
+import RestaurantMenu from "./components/RestaurantMenu";
+import About from "./components/About";
+import Contact from "./components/Contact";
 
 
 
@@ -12,7 +16,7 @@ const Applayout = ()=>{
         <>
  
         <HeaderComponent/>
-        <Body/>
+        <Outlet/>
         <Footer/>
         
         </>
@@ -21,7 +25,42 @@ const Applayout = ()=>{
 
 
 
+const appRouter = createBrowserRouter([
+    {
+        path: "/",
+        element: <Applayout/>,
+        errorElement: <Error/>,
+        children: [
+            {
+                path: "/",
+                element: <Body/>,
+            },
+            {
+                path: "/about",
+                element: <About/>,
+            },
+            {
+                path: "/contact",
+                element: <Contact/>,
+            },
+            {
+                path: "/restaurant/:id",
+                element: <RestaurantMenu/>
+            },
+        ]
+    }
+])
+
+
+
+
+
+
+
+
+
+
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Applayout/>);
+root.render(<RouterProvider router={appRouter}/>);

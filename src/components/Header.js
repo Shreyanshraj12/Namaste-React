@@ -1,26 +1,35 @@
 import { useState } from "react";
+import Logo from "../assets/img/Logo.png"
+import { Link } from "react-router-dom";
+
+
+
 const Title = ()=>(
     <a href="/">
-    <img className="logo" alt="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS51Fg8ECaMCb6T2yAd4CgUjy_hu7Zk1OKEZw&s"/>
+    <img className="logo" alt="logo" src={Logo}/>
     </a>
 )
 
 
 
 const HeaderComponent = ()=>{
-    const [loggedIn,  setloggedIn] = useState(true);
+    const [loggedIn,  setloggedIn] = useState(false);
     function toggle(){
-            setloggedIn(!loggedIn)
-        
+        setloggedIn(!loggedIn)
+    
     }
+    
     return(
         <div className="header">
             <Title/>
             <div className="nav-items">
                 <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
+                    
+                <li><Link to="/">Home </Link></li>
+                <li> <Link to="/about">About </Link></li>
+                
+                
+                <li> <Link to="/contact"> Contact </Link></li>
                 <li>Cart</li>
                 </ul>
             </div>
