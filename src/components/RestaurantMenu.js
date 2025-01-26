@@ -6,7 +6,7 @@ import Shimmer from "./Shimmer";
 
 const RestaurantMenu = ()=>{
     const {id} = useParams();
-    const[restaurant, setRestaurant] = useState({});
+    const[restaurant, setRestaurant] = useState(null);
 
 
 
@@ -21,25 +21,29 @@ const RestaurantMenu = ()=>{
         setRestaurant(json);
     }
      
-if(!restaurant){
-    return <Shimmer/>
-}
 
 
-    return(
-        <>
+    return (
         <div>
-            <h1>Restaurant Id :{id}</h1>
-           <h2>{restaurant?.data?.cards[2]?.card?.card?.info?.name}</h2>
-           <img src={IMG_CDN_URL + restaurant?.data?.cards[2]?.card?.card?.info?.cloudinaryImageId}/>
-           <p>{restaurant?.data?.cards[2]?.card?.card?.info?.areaName}</p>
-           <p>{restaurant?.data?.cards[2]?.card?.card?.info?.city}</p>
+            {!restaurant ? (
+                <Shimmer />
+            ) : (
+                <>
+                    <h1>Restaurant Id: {id}</h1>
+                    <h2>{restaurant?.data?.cards[2]?.card?.card?.info?.name}</h2>
+                    <img
+                        src={IMG_CDN_URL + restaurant?.data?.cards[2]?.card?.card?.info?.cloudinaryImageId}
+                        alt="Restaurant"
+                    />
+                    <p>{restaurant?.data?.cards[2]?.card?.card?.info?.areaName}</p>
+                    <p>{restaurant?.data?.cards[2]?.card?.card?.info?.city}</p>
+                    <p>{restaurant?.data?.cards[2]?.card?.card?.info?.avgRating} Star </p>
 
+                </>
+            )}
         </div>
-       
-        </>
-        
-    )
+    );
+    
 }
 export default RestaurantMenu;
 
