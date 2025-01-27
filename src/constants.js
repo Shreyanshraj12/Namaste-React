@@ -1447,3 +1447,5 @@
       }
     }
 ]
+
+export const FETCH_MENU_URL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.2585371&lng=82.06598579999999&restaurantId="

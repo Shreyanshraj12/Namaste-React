@@ -3,13 +3,12 @@ import { ResturantList } from "../constants";
 import  ResturantCard  from "./ResturantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+ import { filterData } from "../utils/Helper";
 
 
-const filterData = (searchText, allResturant) => {
-    return allResturant.filter((resturant) =>
-      resturant.info.name.toLowerCase().includes(searchText)
-    );
-  };
+
+
+
   
 
 
