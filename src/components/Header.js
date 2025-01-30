@@ -31,6 +31,7 @@ const HeaderComponent = ()=>{
                 
                 <li> <Link to="/contact"> Contact </Link></li>
                 <li>Cart</li>
+                <li><Link to="/instamart">Instamart</Link></li>
                 </ul>
             </div>
             {loggedIn ? (<button onClick={toggle}>LogOut</button>) : (<button onClick={toggle}>LogIn</button>)}
