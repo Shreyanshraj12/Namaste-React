@@ -40,9 +40,9 @@ const Body = ()=>{
 
     return (allResturants?.length === 0) ? <Shimmer/> :(
         <>
-        <div className="search-container">
-            <input type="text" className="search-input" placeholder="Search" value={searchText} onChange={(e)=>setSearchText(e.target.value)}/>
-            <button className="search-btn" onClick={()=>{
+        <div className="p-5 bg-pink-50 my-5">
+            <input type="text" className="focus:bg-orange-100 p-2 m-2 " placeholder="Search" value={searchText} onChange={(e)=>setSearchText(e.target.value)}/>
+            <button className="p-2 m-2 bg-purple-900 hover:bg-gray-500 text-white rounded-lg" onClick={()=>{
             const data = filterData(searchText, allResturants);
             setFilterResturants(data);
            
@@ -51,7 +51,7 @@ const Body = ()=>{
 
  
          
-        <div className="resturant-list">
+        <div className="flex flex-wrap">
           {filteredResturants?.length === 0 ? (<h1>Sorry No Iteams Found 😢</h1>) :( 
            
            filteredResturants?.map((p)=>(

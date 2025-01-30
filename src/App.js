@@ -12,8 +12,6 @@ import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
 
 
-// import Instamart from "./components/Instamart";
-
 const Instamart = lazy(()=> import("./components/Instamart")); 
 
 
