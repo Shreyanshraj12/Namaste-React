@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Logo from "../assets/img/Logo.png"
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
+
 
 
 
@@ -14,6 +16,10 @@ const Title = ()=>(
 
 const HeaderComponent = ()=>{
     const [loggedIn,  setloggedIn] = useState(false);
+    const {user} = useContext(UserContext);
+
+
+
     function toggle(){
         setloggedIn(!loggedIn)
     
@@ -34,6 +40,7 @@ const HeaderComponent = ()=>{
                 <li className="px-2"><Link to="/instamart">Instamart</Link></li>
                 </ul>
             </div>
+            <span className="p-10 font-semibold text-red-900">{user.name}</span>
             {loggedIn ? (<button onClick={toggle}>LogOut</button>) : (<button onClick={toggle}>LogIn</button>)}
             
         </div>

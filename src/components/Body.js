@@ -1,17 +1,19 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect, useContext } from "react";
 import { ResturantList } from "../constants";
 import  ResturantCard  from "./ResturantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/Helper";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
 
 
-const Body = ({user})=>{
+const Body = ()=>{
   const[allResturants, setAllResturants] = useState([]);
     const[filteredResturants, setFilterResturants] = useState([]);
     const [searchText, setSearchText] = useState("");
+    const {user, setUser} = useContext(UserContext);
    
 
     useEffect(()=>{
@@ -47,15 +49,26 @@ const Body = ({user})=>{
             setFilterResturants(data);
            
             }}>Search</button>
+            <input value={user.name} onChange={(e)=> setUser({
+              ...user,
+              name : e.target.value,
+             
+              })} type="text"></input>
+
+
+<input value={user.email} onChange={(e)=> setUser({
+              ...user,
+              email: e.target.value,
+              })} type="text"></input>
         </div>
 
  
          
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap ">
           {filteredResturants?.length === 0 ? (<h1>Sorry No Iteams Found 😢</h1>) :( 
            
            filteredResturants?.map((p)=>(
-           <Link to={"/restaurant/" + p.info.id} key={p.info.id} > <ResturantCard {...p.info} user = {user} /></Link> 
+           <Link className="" to={"/restaurant/" + p.info.id} key={p.info.id} > <ResturantCard {...p.info} user = {user} /></Link> 
             ))
           )}
             
