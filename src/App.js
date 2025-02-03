@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useState} from "react";
 import ReactDOM from "react-dom/client";
 import HeaderComponent from "./components/Header";
 import Body from "./components/Body";
@@ -40,7 +40,10 @@ const appRouter = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Body/>,
+                element: <Body user = {{
+                    name: "Namaste React",
+                    email: "shreyansh@gmail.com",
+                }}/>,
             },
             {
                 path: "/about",

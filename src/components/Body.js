@@ -8,7 +8,7 @@ import useOnline from "../utils/useOnline";
 
 
 
-const Body = ()=>{
+const Body = ({user})=>{
   const[allResturants, setAllResturants] = useState([]);
     const[filteredResturants, setFilterResturants] = useState([]);
     const [searchText, setSearchText] = useState("");
@@ -55,7 +55,7 @@ const Body = ()=>{
           {filteredResturants?.length === 0 ? (<h1>Sorry No Iteams Found 😢</h1>) :( 
            
            filteredResturants?.map((p)=>(
-           <Link to={"/restaurant/" + p.info.id} key={p.info.id} > <ResturantCard {...p.info} /></Link> 
+           <Link to={"/restaurant/" + p.info.id} key={p.info.id} > <ResturantCard {...p.info} user = {user} /></Link> 
             ))
           )}
             
