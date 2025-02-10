@@ -56,7 +56,7 @@ const Body = ()=>{
               })} type="text"></input>
 
 
-<input value={user.email} onChange={(e)=> setUser({
+         <input value={user.email} onChange={(e)=> setUser({
               ...user,
               email: e.target.value,
               })} type="text"></input>
